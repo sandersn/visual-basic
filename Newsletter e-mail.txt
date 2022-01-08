@@ -1,0 +1,77 @@
+	Nathan's Daily [sic] Newsletter*
+
+To you all in the computer club, this is an e-mail that I'm going to try to send out semi-
+regularly in hopes of getting everyone to get back going on programming. Since this is the
+premier issue this is mostly going to be questions so I can get caught up on what's happening
+with everyone. First, what <i>exactly</i> is the status of everyone's ownership of Visual Basic?
+<b>Especially</b> you Casey!! Second, are the HTML italics and bolds coming through? If so, this
+newsletter will probably start looking very different...If not, I'll go back to using *these*.
+Third, what has everyone been talking about the game? I need to know everyone's ideas so that
+we can all be on the same track. Fourth, we need to decide what to do to communicate amongst
+ourselves(besides this newsletter).
+
+OK. I have not been doing much except a little work improving the scripting commands. There are
+now two new sets of commands: the step animation commands that allow you to animate the 
+characters just like the Final Fantasy series. The other one is a "warp" command that lets you
+warp the NPCs or the player somewhere on the map.
+
+Anyway, this is supposed to be an interactive type of thing, so e-mail me back soon. How often
+this comes out kind of rests on how much you all talk back.
+
+		Talk to you later,
+	Nathan
+
+
+*  This e-mail best viewed with Internet Explorer 4.01 at 800x600 res.**
+
+** This note best viewed with Netscape Navigator 3+ at 640x480 res.
+
+<!--Issue 2 -->
+
+<HTML>
+<TITLE>
+<BODY>
+		<H1>Nathan's Daily [sic] Newsletter</H1>
+
+OK, everybody: this is going to be short but sweet because I don't have much time. Bear with me 
+on the HTML stuff; next issue will probably look a <b>lot</b> better if I remember to look it up.
+
+    First, I have heard from Ryan that everyone else has decided to do an online game. If this is not
+OK with you, this is a speak-up-or-forever-hold-your-peace kind of thing! 
+    Anyway, now for the plans:
+	Ryan, you and I need to start communicating immediately to converge my engine and your engine
+(which I am assuming is for communicating between a client copy and a server version of my engine).
+to merge them. I need to understand how your engine works and vice versa...e-mail me or something
+and we'll get started.
+	Casey, you need to start working on class code and battle code and talk to me and Ryan some when
+you're ready to stick it in the main engine. Also, could you tell me if you've got VB yet?
+(this goes for you too, Ryan; I really hope you can get VB back on your machine soon)
+	jederge(JediRJ), I <i>really</i> want you to run through my code again and e-mail me all
+the bugs you run into.
+
+Also, I've stuck an idea that's been bugging me for a while together and I'm attaching it to this
+newsletter so you all can take a look at it. Ryan, do you remember that 'Surfer' game idea that I told you about
+where
+the player(and the NPCs) are characters that live inside computers and can travel between them
+over the Internet? Anyway, that and Bob's idea of a program to really <i>teach</i> something
+kind of stuck together and I thought that maybe you could teach programming pretty visually if
+the player was inside of a RPG type game and was a programmer's apprentice. There a lot of 
+obstacles to making a <b>real</b> program that does this, so I just put 4 or 5 command buttons
+on a form and used OpenTalkBox a lot, and made sort of a demo...Anyway, look at it and tell me
+what you think. You need the Talkbox.frm, Talkbox.bas, and Buttons.frm files to <i>run</i> it, 
+but you can look at it with notepad without VB anyway. 
+	RJ, I want you to try to break the logic on the exercise and see if you can fool it
+into thinking that you passed when you didn't(or vice versa)(one way I already thought of is to
+press Cancel on the Inputbox that tells you to type in the code :)
+
+	Ryan, about your tile idea and dynamic terrain for a 3-D engine; I can think it would be
+easy to detect for a bomb-blast and make a <b>whole tile</b> burnt-grassly, simply by have a
+burnt-grass tile stashed away for that particular terrain. Or as you said, just simply the texture,
+but I am stumped about dynamically altering the terrain even if we used tiles. We might use 
+a kind of 'incidence record' of the blast(or road), but they would pile up <i>really</i> fast.
+
+That's about all for this time, so tell me if the HTML worked!!
+
+Nathan
+</BODY>
+</HTML>
