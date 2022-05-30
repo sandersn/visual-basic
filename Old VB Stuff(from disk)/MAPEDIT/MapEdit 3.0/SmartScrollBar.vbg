@@ -1,0 +1,4 @@
+VBGROUP 5.0
+Project=SmartScrollBar.vbp
+StartupProject=TestScrollBar.vbp
+Project=VSmartScrollBar.vbp

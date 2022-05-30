@@ -1,0 +1,95 @@
+			Killing of the King!!
+
+J. Cearley: Base Concept
+N. & R. Sanders: Extensive re-working of storyline
+N. Sanders:Game Adaptation
+
+In this adventure game the player plays the game from the viewpoint of 
+three different characters. The characters are chosen at the beginning of
+gameplay. Example:
+/-------------------\/------------\/----------\
+|an animated picture||picture of  ||picture of|
+|of Bob the tramp.  ||Bulk 	  ||Lord Byron|
+\-------------------/\------------/\----------/
+Bob:Bob has high    |Bulk:Bulk has low   |Byron:Byron has medium agility,
+agility, low weapons|agility, low weapons|medium weapons, medium tec. pts.
+very high tec. pts.,|low tec. pts., very |high health pts. Byron, young 
+med. health pts.,   |high health pts. 	 |and impetuous, does not beleive
+Tramps around the   |Bulk is very super- |that the Prince killed the King.
+coutryside picking  |stitious, but when  |He has hired Mon Rox, the 
+up odd jobs.	    |his ox is stolen,	 |mercenary to hunt down the real
+                    |nothing will stop	 |assassin.
+--------------------|him from regaining  |--------------------------------
+General Storyline:  |it!!!---------------|
+The King has been killed! The country is in an uproar! The Prince is 
+immediate suspect, because he disappeared the same night that the King was
+killed. Some noblemen have encouraged the idea, because they may stand a
+chance to gain more power if a different king is on the throne.
+--------------------------------------------------------------------------
+Character Storyline:
+Bob:At beginning of gameplay, Bob|Byron:At beginning of	|Bulk:At beginning of|
+is a few units away from the Crab|gameplay, Byron has 	|gameplay, Bulk's onl|
+which is really the Prince with  |just hired Mon Rox,and|y ox has been stolen|
+amnesia.(Needless to say, the 	 |they have disguised	|by the king's assass|
+Prince is not recognizable). 	 |themselves as a trav- |in, who needed some |
+After talking with him for a 	 |eling merchant's son	|money. Bulk(Ox) only|
+while, Bob befriends Crab, con-  |and his bodyguard.	|saw a dark shadow, but|
+tinues onward to  the capital 	 |Byron has trouble get-|he is determined to |
+where he intends to help find the|ting used to being a  |chase down the thief|
+killer of the king. Crab slowly  |merchant's son at first|(Note: If the player|
+regains his health, but looks far|, but he eventually	|walks to Bulk's chop|
+different from the prince that he|gets used to it. Two	|ping block, they can|
+used to be. The two have many	 |days out from the cap-|get an ax. Otherwise|
+adventures on the way to the	 |ital, Byron and Rox	|their weapon is a   |
+capital. Two days away from the  |meet Bob and Crab. The|pitchfork. Bulk treks|
+capital, Bob and Crab meet up	 |Prince has changed so |after the shadow,   |
+with Mon Rox and Lord Byron. They|much, Byron completely|staying in fellow   |
+talk for a while, then warily	 |fails to recognize him|peasants homes at   |
+agree to join forces. Byron and  |They compare notes,	|night. He also gathers
+Rox have gathered several clues, |and agree to join for-|numerous important clues
+and Bob had a godmother who	 |ces. 			|He meets a few enemies
+taught him a poem about an under-|----------------------|along the way, but he
+ground people who would kill the |From here, Bob and	|manages to dispatch them.
+king, telling him that he must	 |Byron's stories are 	|About 2 weeks into his
+try to avert the disaster. He did|combined.		|journey, Bulk meets 4
+not manage to warn the king in	 |----------------------|travelers also seeking
+time, which is why he was	 |the strange shadow. He sees no reason to 
+journeying to help seek out the  |refuse joining their party, so that is what
+assassin.			 |he does. (Note:We might want to include some
+---------------------------------|sort of mini-quest before Bulk meets the rest.
+From here, Bob and Byron's stories|------------------------------------------
+are combined.			 |	From here, every story is combined.
+---------------------------------|-------------------------------------------
+The five journey on, meeting more and more strange creatures(maybe mutated)
+At last they reach what used to be a thriving border town. Now no humans
+live there except the mayor, and he's leaving next Tuesday! The town was
+slowly taken over by hordes of dog-men(oddly resembling Goofy). They
+were able to talk just enough to make threats to townspeople to get out
+of their homes and leave. The mayor thinks that the dog-men came from the
+Red Forest, which is two miles north-west of the town. Our heroes decide 
+that that is where they should go next. Half a day later, they reach the 
+Red Forest. It is dark, gloomy and generally scary. Our heroes nevertheless
+put on brave faces and venture into the forest the next morning. They 
+fight off many mutated creatures and are almost half-way through the forest
+when they spot Bulk's dark shadow!! They chase him and and catch him after
+15 minutes. After being scared out of his wits by Bulk, who wants to know
+where his ox is, he confesses that he is a hired assassin for the Under-King,
+the monarch of the country adjoining. He was the one that killed the king.
+He also is forced to reveal that the dog-men are part of a plot to slowly 
+take over the as of yet unnamed country that our heroes live in. He tells 
+them that there are 10 tunnels criss-crossing underneath the Red Forest, and
+connecting tunnels that lead into the border mountains. Our heroes decide to
+send Bob and Bulk back to the capital with the assassin in the morning, and 
+the other three would continue on to the tunnels to explore and possibly
+overturn the Under-King and his Evil plots. 
+
+Here ends Episode 1. To get the rest of the storyline, please send at least 
+2.50 (for postage and handling)(not!)to my address, which I'm not going to 
+tell you. If you don't want to do that, just scroll down and keep reading.
+
+Episode 2:
+The next morning, our heroes wake up to find that the assassin has chewed his
+way through the ropes binding him to the tree, and has taken off toward the
+tunnels that lead underneath the mountains bordering our heroe's country.
+(Yes, I did steal this idea from "Sword of Shannarra")
+They hotly pursue him.

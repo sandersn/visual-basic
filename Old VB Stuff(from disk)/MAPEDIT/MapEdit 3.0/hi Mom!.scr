@@ -1,0 +1,71 @@
+j001,
+j002,
+j003,
+j004,
+j005,
+j006,
+'In this script language, you cannot put comments on the same lines as other commands
+'Please note that you may put comments on any line BY THEMSELVES as long as you don't use any 
+'control characters as the first letter. You can also use control characters as the first letter
+'Outside scripts, threads, and headings. However, for consistency, I will ask that you only put
+'comments on a line by themselves preceded by a ' or / or ;.(We may slim these down to one or 
+'the other at some point in time if we need to use the others. Right now I am using the '
+'simply because it is one character and I am used to coding the / like this: // so it is easier
+' to code this: '. Also note that you cannot put tabs in front of the lines so that you can
+'so the levels of code. So, I recommend putting lots of blank lines in between levels of code.
+
+
+
+'This is the first script(for Mikey the Mouse)
+s1
+
+t1
+
+hKats
+cOh yes, I'm afraid of Kats. But I have a secret weapon against them.
+cCrono: A secret weapon? What kind?
+cIt's a K-Rang! It knocks 'em silly!!
+
+qHmm.. I might be willing to sell it for 200 Moneys. Is it a deal?
+y
+cOk, here's your K-Rang!
+gBrick
+kM200
+d1,2
+>
+
+n
+cWell, if you change your mind, I'll still be here.
+cBut I think that you're giving up a Golden opportunity to smash those Kats!
+>
+)
+]
+
+t2
+
+
+]
+t3
+]
+t10
+hMiney
+cAh Yes, she is my love from way back...
+qBut I haven't seen her in 3 years! Will you find her for me, Crono? I'll give you something good if you do!!
+
+y
+cOh, thank you ever so much, Crono! Here is something to help you on your way!
+gBrick
+d10,11
+>
+
+n
+cOh, but think of our lost love!!
+>
+)
+
+]
+t11
+]
+t12
+]
+}

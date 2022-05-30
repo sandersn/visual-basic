@@ -1,0 +1,6 @@
+BETA.FRM
+C:\WINDOWS\SYSTEM\CMDIALOG.VBX
+C:\VB\CONSTANT.TXT
+ProjWinSize=384,9,190,97
+ProjWinShow=2
+IconForm="frmBeta"

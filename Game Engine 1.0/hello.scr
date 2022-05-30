@@ -1,0 +1,649 @@
+j0,74
+j1,272
+j2,448
+j3,530
+'Current commands available:
+'required! j for jumptable. j1,99 1 = script number, 99 = line number where script starts.
+'NOTE:required that there be NO lines above or in between jumptable!!
+'(Script:0, You see a squeaky looking mouse named Mikey) 0 = script number
+'{ }
+'(Thread:12) 12 = execute these headings if this thread number is active
+'[ ]
+'(Heading:Miney) Miney = name of command button of OpenTalkBox
+'( )
+'
+'(Chat:Hello, my name is Mikey and I want you to vote for ME!)
+'note that you don't have to use chat like I do. You might want to use
+'               chat: Mikey:Hello, Crono.
+'               chat: Crono:Hello, Mikey...
+'(ChThread:0, 1)
+' 0 = number of thread to change, 1 = number to which to change the thread.
+'(Give:1, 2, 3)
+'1 = Type, 2 = Desc, 3 = movement(note:must be a number, not a constant)
+'(Take: 1)   1 = description number of the object
+'(Put:111, 999, 2, 3, 0)
+            '111 = the tile X position
+            '999 = the tile Y position
+            '2 = the description number
+            '3 = the type(i.e. picture and 'Thing' type
+            '0 = the movement value(no constants allowed)
+'(Remove:1, 4, [111, 999])
+            '1 = description number of thing to remove(this is iffy for multiple instances of one thing per screen.
+	'4 = type(picture of thing to remove); 
+            'It could be quite unreliable for killing enemies.)(Or in a place with a LOT of hay)
+	'111 = X co-ordinate; 999 = Y co-ordinate [OPTIONAL] Note this will search the whole screen in 
+'which the X,Y coordinates are given if it doesn't find anything in that precise location.
+'(End:)
+        'Note that End REQUIRES a colon after it!
+
+
+'(Have:12) 12 = description number
+' {y|n} >
+'(Question:Do you want to sell that poison coated saber?)
+'{y|n} >
+
+'(IsThread:1, 12)
+'optionally:(IsThread:1, 12-34)
+'1 = number of thread, 12 = number that we're checking for.
+'12-34 = range of numbers to check for.
+'Note: may remove the requirement of specifying the thread number.
+' {y|n} >
+
+'(ChMap:111,999,22)
+'111 = X Position, 999 = Y position, 22 = Tile Type
+'is this simple or what?...BUT: very important note:X and Y START AT 0!!! This is VERY IMPORTANT!
+'Also, please try to stay within range for the Tile Types, which, in fact, start at 1!
+
+'note:up here, please list the values which the threads will be changing through(i.e. Thread 0:1 to 13, Thread 1:14 to 44,
+'etc.)This is mainly to remind YOURSELF, though, so if you think you don't need to...
+
+'thread: 0 to 7 is the elect Mikey campaign
+        '0=talk to mikey. He'll ask you to Vote for him. yes = 1; no = 4
+        '1 = talk to mikey. He'll ask you to Campaign for him. yes = 2; no = 4
+        '2 = talk to Lady. She will agree to vote for him.
+        '3 = end of Thread 0--for Mikey
+        '4 = talk to miney. She'll ask you to campaign against Mikey. yes = 5; no = 7
+        '5 = talk to Lady. She'll agree to not vote for mikey if you have some hay and are willing to give it to her.
+        '6 = end of Thread 0--against Mikey
+        '7 = end of Thread 0--neutral to Mikey
+'thread: 8 to 10 is the stop Mega from stealing sugar.
+        '8 = talk to Mega to get her to stop 'borrowing' sugar. She threatens you and you run for your life.
+        '9 = talk to Mikey. He reccommends putting sleeping powder in your sugar if you can sneak in when Mega isn't around.
+        '10 = End of Thread 1--(Only one outcome, continued next time with maybe a branch or two)
+'Mikey the Mouse
+Script:0, You see a squeaky looking mouse named Mikey.
+{
+        Thread:0
+        [
+        Heading: Miney
+                (
+                        chat:Yes, she is outside somewhere. I haven't seen her in a long time.
+                        chat:She 's very irresponsible. She let me run out of food! But I love her anyway!
+                        chat:(Since this morning, I think.)
+                )
+                Heading: Town
+                (
+                        chat:This is indeed a beautiful city, although it does have a large problem. It's named Mouseville. That can never be OK with me. I'm campaigning to be elected mayor so that I can change the name to MikeyTown.
+                        question:So , i 'm trying to get all the votes that I can. Will YOU vote for me?
+                        ansyes
+                        <
+                                chat:Wonderful! I need all the votes that I can get.
+                                chat:(You're the first one who has said that you'd vote for me)
+                                chat:(You're the first one I've asked since I ran out of food this morning)
+                                chthread:0, 1
+                        >
+                        ansno
+                        <
+                                chat:Arrgh, you awful person! I will never be your friend again!
+                                'set the thread so that he will stay mad at you.
+                                chthread:0, 4
+                        >
+                        /question
+                )
+                Heading:Iron Pot
+                (
+                        chat:Oh, that old thing. You can have it if you want to. It bugs everyone that comes by by following them.
+                        chat:And when you put something inside it, it dumps it right back out.
+                )
+        ]
+        Thread:1
+        [
+                Heading:Shakespeare
+                (
+                        chat:Shakespeare sez: "That that is is."
+                        chat:Remember, vote for Mikey in the next election!!
+                )
+                Heading:Iron Pot
+                (
+                        chat:Yes, go on take it. I really don't need it and it's somewhat of a nuisance.
+                )
+                Heading:election
+                (
+                        chat:Thank You, It 's going very well. I don't even have any opponents
+                        question:But will you campaign for me? I'd really like your help.
+                        ansYes
+                        <
+                                chat:My gratitude is undying for you!
+                                chat:All you have to do is talk to everyone you see and promote ME for mayor!
+                                chat:Prettty easy!
+                                chthread:0, 2
+                        >
+                        ansno
+                        <
+                                chat:My grudge is undying for you!
+                                chthread:0, 4
+			>
+                        /question
+                )
+        ]
+        Thread:2
+        [
+                Heading:Campaign
+                (
+                        chat:Keep On Going! That's my knew motto!
+                        chat:that 's right, gnu and improved!!!
+                        chat:Just Remember: KOG and Mikey for Mayor!
+                )
+                Heading:Shakespeare
+                (
+                        chat:Shakespeare sez: "That that is is."
+                        chat:Remember, vote for Mikey in the next election!!
+                )
+                Heading:election
+                (
+                        chat:The election? I'm not exactly sure when it'll be...I sure hope it'll be soon, though.
+                        chat:Try asking Chatty Lady. She's really in charge around here anyway.
+                )
+
+        ]
+        Thread:3
+        [
+                Heading:Game
+                (
+                        chat:Thank you for playing this game. Buy the incredibly addicting sequel NOW!
+                )
+                Heading:Mayor
+                (
+                        chat:You have completed this section of the game. Buy the sequel NOW to find out if I get elected!
+                )
+                Heading:Shakespeare
+                (
+                        chat:Shakespeare sez: "That that is is."
+                        chat:Remember, vote for Mikey in the next election!!
+                )
+        ]
+        Thread:4-5
+        [
+        'here he is mad at you and will not talk to you. Optionally with isthread(coming soon)
+        'you could check to see if the thread is 4 though 6 and if so, not give you any info on the stop
+        'Mega stealing campaign.
+                Heading:Mayor
+                (
+                        chat:I cannot that believe that you would talk of such a thing in my presence after publicly(well, not really) insulting me!!
+                        End:
+                        'note that end REQUIRES a colon
+                )
+                Heading:Shakespeare
+                (
+                        chat:Shakespeare sez: "That that is is."
+                        chat:Remember, vote for Mikey in the next election!!
+                )
+                Heading:Flower Garden
+                (
+                        chat:Oh, Miney takes care of that. I don't even really know how to garden.
+                        chat:But I hereby give you permission to stroll around in the garden whenever you want!!
+                )
+        ]
+        Thread:6-7
+        'here, you told him you would NOT vote for him, but also might have campaigned against him(but he doesn't know that).
+        [
+                Heading:Game
+                (
+                        chat:Thank you for playing this game. Buy the incredibly addicting sequel NOW!
+                )
+                Heading:Mayor
+                (
+                        chat:You have completed this section of the game. Buy the sequel NOW to find out if I get elected!
+                )
+                Heading:Votes for Mikey
+                (
+                        chat: i 'll get you to vote for me yet!!
+                        chat:Buy the sequel NOW!!
+                )
+        ]
+        Thread:8
+        [
+        'here Mikey is just talking away...
+                Heading:House
+                (
+                        chat:I love my house.
+                        chat:And I always say that a man's castle is his house!
+                )
+                Heading:Sugar
+                (
+                        chat:No! You can't have any sugar!
+                        chat:...
+                        chat:I mean, I don't know what you're talking about.
+                )
+                Heading:Beatles
+                (
+                        chat:Were they those things that were trying to tear down my maze?
+                )
+        ]
+        Thread:9
+        'here Mikey gives you some BAD advice
+        [
+                Heading:Maze
+                (
+                        chat:It's to keep intruders out of my back room. There's no one yet that I know that can get through it!
+                        chat:You should get one too!
+                        'In the next demo I will probably add a ChangeMap function using absolute co-ordinates plus a map number.
+                )
+                Heading:Sugar
+                (
+                        chat:Oh, is Mega stealing your sugar?
+                        chat:You should try putting sleeping potion in your sugar! It worked for me.
+                        chthread:1,10
+                        'Hint: don't do it...
+                )
+                Heading:They were a Music Group
+                (
+                        chat:What would I, a mayorial candidate, know about Music Groups?
+                        chat:Remember, Vote for Mikey!
+                )
+        ]
+        Thread:10
+        [
+                Heading:Game
+                (
+                        chat:You are done with this section of the game. Buy the addicting sequel NOW!
+                )
+                Heading:Ltgrran
+                (
+                        chat:He once was my nemesis(He's a cat)
+                )
+                Heading:Sugar
+                (
+                        chat:Just follow my advice in the next game.
+                )
+        ]
+}
+'The lady
+Script:1, You see a lady who is talking constantly, but has just paused to catch her breath.
+{
+        Thread:0-1
+        [
+        'nonsense section...uninvolved with everything
+            Heading:Hay
+            (
+                chat:Oh yes!!! I love stockpiling Hay!! I don't really use it except to sometimes feed my pets, here!! Did I ever tell you about the time that they almost ran out of food?!??
+                chat:(gasp)
+            )
+            Heading:Moovies
+            (
+                chat:Oh you're funny!! Yes, I like to watch movies. But how I came to like them so much is a mystery, because there are no movie palaces on this awful(but wonderful) island!! It must have been on that trip to Bermuda? Did I ever tell you about that?
+                chat:(gasp)
+            )
+            Heading:Iron Pot
+            (
+                chat:Why are you asking ME about Mikey's Iron Pot? I never even thought about wanting one of those... But now that you mention it, that reminds me of the time that I went to the other corner of the island!
+                chat:(gasp)
+            )
+        ]
+        Thread:2
+        [
+            Heading:Moovies
+            (
+                chat:Oh you're funny!! Yes, I like to watch movies. But how I came to like them so much is a mystery, because there are no movie palaces on this awful(but wonderful) island!! It must have been on that trip to Bermuda? Did I ever tell you about that?
+                chat:(gasp)
+            )
+            Heading:Vote for Mikey!
+            (
+                chat:Oh, yes, I just love Mikey! He's one of my best friends besides that cute little baby mouse!
+                chat:You:But-
+                chat:Of course I'll vote for him!! Now, do you know when the election is? No? Well, I'll have to find out so I can vote for Mikey!! Thank you for telling me about it!!
+                chat:(gasp)
+                chthread:0,3
+            )
+            Heading:Sugar
+            (
+                chat:Oh, that cute little baby mouse just LOVES sugar! I give her some every day. The only problem is that she doesn't like hay!
+                chat:(gasp)
+            )
+        ]
+        Thread:3
+        'endgame--for mikey
+        [
+                Heading:Game
+                (
+                        chat:Thank you for playing this game. Buy the incredibly addicting sequel NOW!
+                )
+                Heading:Mayor
+                (
+                        chat:You have completed this section of the game. Buy the sequel NOW to find out if Mikey gets elected!
+                )
+                Heading:Fruit Cake
+                (
+                    chat:Oh, yes, now that you mention it, I love fruitcake, but there just aren't enough resources on this island to make it. Why I remember when I went to the Bahamas, they had it at every turn!!!
+                    chat:(gasp)
+                )
+        ]
+        Thread:4
+        'voted no for mikey, no effect on LAdy--yet...
+        [
+            Heading:Hay
+            (
+                chat:Oh yes!!! I love stockpiling Hay!! I don't really use it except to sometimes feed my pets, here!! Did I ever tell you about the time that they almost ran out of food?!??
+                chat:(gasp)
+            )
+            Heading:Moovies
+            (
+                chat:Oh you're funny!! Yes, I like to watch movies. But how I came to like them so much is a mystery, because there are no movie palaces on this awful(but wonderful) island!! It must have been on that trip to Bermuda? Did I ever tell you about that?
+                chat:(gasp)
+            )
+            Heading:Iron Pot
+            (
+                chat:Why are you asking ME about Mikey's Iron Pot? I never even thought about wanting one of those... But now that you mention it, that reminds me of the time that I went to the other corner of the island!
+                chat:(gasp)
+            )
+
+        ]
+        Thread:5
+        'ask Lady to vote against Mikey
+        [
+            Heading:Moovies
+            (
+                chat:Oh you're funny!! Yes, I like to watch movies. But how I came to like them so much is a mystery, because there are no movie palaces on this awful(but wonderful) island!! It must have been on that trip to Bermuda? Did I ever tell you about that?
+                chat:(gasp)
+            )
+            Heading:Vote against Mikey
+            (
+                chat:Oh, well, but I just love Mikey! He's one of my best friends besides that cute little baby mouse!
+                chat:You:But-
+                have:1
+                '1 = pile o' hay
+                havyes
+                <
+                    chat:Well, here's what I'll do...If you'll give me that pile of hay you have, I'll vote against Mikey. I don't like to do it, but it's worth it to get a stack of hay.
+                    chat:(gasp)
+                    question:So, will you give to me your pile of hay?
+                    ansyes
+                    <
+                        chat:Thank you very much!
+                        take:1
+                        chthread:0,6
+                    >
+                    ansno
+                    <
+                        chat:Well, then I'll just vote FOR Mikey! Tough beans, buster!!!
+                        chthread:0,3
+                    >
+                    /question
+                >
+                havno
+                <
+                    chat:Well, here's what I'll do...If you'll give me a pile of hay, I'll vote against Mikey. I don't like to do it, but it's worth it to get a stack of hay.
+                    chat:(gasp)
+                >
+                /have
+
+            )
+            Heading:Sugar
+            (
+                chat:Oh, that cute little baby mouse just LOVES sugar! I give her some every day. The only problem is that she doesn't like hay! And she always wants MORE!
+                chat:(gasp)
+            )
+
+        ]
+        Thread:6-7
+        [
+                Heading:Game
+                (
+                        chat:Thank you for playing this game. Buy the incredibly addicting sequel NOW!
+                )
+                Heading:Mayor
+                (
+                        chat:You have completed this section of the game. Buy the sequel NOW to find out if Mikey gets elected!
+                )
+                Heading:Fruit Cake
+                (
+                    chat:Oh, yes, now that you mention it, I love fruitcake, but there just aren't enough resources on this island to make it. Why I remember when I went to the Bahamas, they had it at every turn!!!
+                    chat:(gasp)
+                )
+        ]
+        Thread:8-10
+        [
+            Heading:Bermuda
+            (
+                chat:You want to know about the time I went to Bermuda? Well, it went like this...(10 minutes later, Chatty Lady faints and revives but temporarily stunned)
+            )
+            Heading:Maze
+            (
+                chat:Oh that Mikey!! He built that maze around his house just to show that he was better than anybody else. Of course, he DID have enough money to build it, but then again, I think they ran out of Moneys yesterday too!
+                chat:(gasp)
+            )
+            Heading:Krops
+            (
+                chat:Yes, I know, my crops are not that good. It's because my dear little pets like to eat Hay so much that they can't wait for it to finish growing!!!
+                chat:(gasp)
+            )
+        ]
+
+}
+'thread: 0 to 7 is the elect Mikey campaign
+        '0=talk to mikey. He'll ask you to Vote for him. yes = 1; no = 4
+        '1 = talk to mikey. He'll ask you to Campaign for him. yes = 2; no = 4
+        '2 = talk to Lady. She will agree to vote for him.
+        '3 = end of Thread 0--for Mikey
+        '4 = talk to miney. She'll ask you to campaign against Mikey. yes = 5; no = 7
+        '5 = talk to Lady. She'll agree to not vote for mikey if you have some hay and are willing to give it to her.
+        '6 = end of Thread 0--against Mikey
+        '7 = end of Thread 0--neutral to Mikey
+'thread: 8 to 10 is the stop Mega from stealing sugar.
+        '8 = talk to Mega to get her to stop 'borrowing' sugar. She threatens you and you run for your life.
+        '9 = talk to Mikey. He reccommends putting sleeping powder in your sugar if you can sneak in when Mega isn't around.
+        '10 = End of Thread 1--(Only one outcome, continued next time with maybe a branch or two)
+
+'Miney the Mouse
+Script:2, You see a cute mouse with an earbow in her flower garden.
+{
+    Thread:0-3
+    [
+        Heading:Flowers
+        (
+            chat:Yes, I love my flowers. Unfortunately, Chatty Lady's Live Flowers are very moveable, and they terrorize my more gentle flowers.
+        )
+        Heading:Mikey
+        (
+            chat:Oh, that Mikey! He let us run out of Moneys yesterday! Now I think he'll have to go back to work on the 3rd floor.
+            chat:He's very irresponsible, you no.
+            chat:And whatever, you do, DON'T VOTE FOR HIM!!!
+        )
+        Heading:Maze
+        (
+            chat:That was Mikey's bad idea. He thinks it will keep people out.
+            chat:Don't let him sell you on the idea.
+        )
+    ]
+    Thread:4
+    [
+        Heading:Mikey for Mayor
+        (
+            question:Yes, I know, it's awful, isn't it? I know! Will you campaign against him?
+            ansyes
+            <
+                chat:Oh good! Just talk to everyone and tell them not to vote for Mikey!
+                chthread:0,5
+            >
+            ansno
+            <
+                chat:Hmmph! At this rate, Mikey will get elected!
+                chthread:0,7
+            >
+            /question
+        )
+        Heading:Flowers
+        (
+            chat:Yes, I love my flowers. Unfortunately, Chatty Lady's Live Flowers are very moveable, and they terrorize my more gentle flowers.
+        )
+        Heading:Yo-Yo Bean
+        (
+            chat:Oh, the legendary Yo-Yo Bean! What I wouldn't give for one of those plants!!
+            chat:You know, that's absolutely the best plant that exists for growing Yo-Yos!
+        )
+
+    ]
+    Thread:5-7
+    [
+        Heading:Vote No to Mikey!
+        (
+            chat:So, is the campaign going well? I hope that you're doing a good job.
+        )
+        Heading:Flowers
+        (
+            chat:Yes, I love my flowers. Unfortunately, Chatty Lady's Live Flowers are very moveable, and they terrorize my more gentle flowers.
+        )
+        Heading:Yo-Yo Bean
+        (
+            chat:Oh, the legendary Yo-Yo Bean! What I wouldn't give for one of those plants!!
+            chat:You know, that's absolutely the best plant for growing Yo-Yos that exists!
+        )
+    ]
+    Thread:8-10
+    [
+        Heading:3rd Floor
+        (
+            chat:Yes, we're on the fifth floor here. But you can get Moneys for work on the 3rd floor.
+        )
+        Heading:Friends && Relations
+        (
+            chat:That's one thing that Mikey has too many of... One time when we had a party here with free food, 53 people showed up claiming to know Mikey!!
+        )
+        Heading:Burpees
+        (
+            chat:Those are the best brand of seeds for growing practically anything! Chatty Lady should use them to grow her Krops, but she doesn't.
+        )
+    ]
+}
+
+'Mega Mouse
+Script:3, You see a little baby mouse. Her name is Mega.(Strange name)
+{
+    Thread:0-7
+    [
+        Heading:Mikey
+        (
+            isthread:9
+		//here if you've asked Mega about giving back the sugar, she will not talk to
+		//you except to beat up on you...
+                isyes
+                <
+                    chat:Mega:(Claw, claw, bite, bite, choke, choke, scratch, scratch, poison, poison, zap, zap, bang, bang, KLONG!!!)
+                    end:
+                >
+		//if not, she'll just insult you and everybody else on the island when you ask her
+		//to vote for Mikey.(Note the comment style I'm using here. It works just as
+		//well as
+		'this. It's just whatever you're used to, and you can get away with nothing at all,
+		//but it's dangerous if the first word you use is a keyword...
+                isno
+                <
+                    chat:I don't like Mikey. I don't like Miney. I don't like you. The only person I like is Chatty Lady, and that's because she gives me sugar.
+                    chat:And I HATE those cockroaches. They're super greedy, bad, not to mention UGLY!
+                >
+            /isthread
+        )
+        Heading:Cute Baby
+        (
+            chat:You:(Pat, Pat)
+            chat:Mega:(Claw, claw, bite, bite, choke, choke, scratch, scratch, poison, poison, zap, zap, bang, bang, KLONG!!!)
+            end:
+        )
+        Heading:Cockroaches
+        (
+            chat:You: My theory is that you are not really a mouse at all. I think you're really a giant cockroach in disguise. That must be why you're so mean!
+            chat:RRRRaaarrr!!
+            warp:5, 5, -1
+            chat:Mega:(Claw, claw, bite, bite, choke, choke, scratch, scratch, poison, poison, zap, zap, bang, bang, kick, kick, whak, whak, WHONG!!!)
+            end:
+        )
+    ]
+    Thread:8
+    [
+        Heading:Sugar
+        (
+            chat:You: I think you've been stealing my sugar!
+            chat:Mega: I have been ever since you moved here! Are you blind or something?!? Or just stupid!
+            chat:Sugar makes me happy! And when I'm happy, I'm stronger!! And when I'm stronger, I'm meaner!!! So leave before I get you with my Death Rattle!!!!
+            have:1
+            havyes
+            <
+                take:1
+'take the hay if he has it.
+            >
+            havno
+            <
+'else do nothing
+            >
+            /have
+            chthread:1,9
+            end:
+        )
+        Heading:Chatty Lady
+        (
+            chat:She thinks I can't talk and I like it that way. I don't think much of her brains, because of that. Also her cockroaches!
+            remove:1, 6, 40, 40
+            'here I'm just testing the remove function.
+            //paint:
+//I'm just testing the paint function here too: I'm not sure if I even really need this command, but it sure was easy to code!
+//Note: just found out: do not need paint command here. If a need comes up for it, it will be coded, but I am taking it out
+//for now.
+        )
+        Heading:Blankie
+        (
+            chat:That's my Choker Blankie! I can choke you from 3 feet away. It reminds me of certain copyrighted villains in 'Moovies'...
+            chat:Here, let me show you...(choke, choke)
+            put:40, 40, 1, 6, 0
+		'soon try put:40, 40, 1, 6, 0 (0 = STILL)
+		'see param list at top of file if this confuses you.
+            end:
+        )
+    ]
+    Thread:9
+    [
+        Heading:Give back the Sugar!
+        (
+            chat:I already ate it!
+            chat:Mega:(Claw, claw, bite, bite, choke, choke, scratch, scratch, poison, poison, zap, zap, bang, bang, KLONG!!!)
+            end:
+        )
+        Heading:Yo-Yo Bean
+        (
+            chat:Mega:(naw, naw, bite, bite, choke, choke, scratch, scratch, poison, poison, zap, zap, bang, bang, KLONG!!!)
+            end:
+        )
+        Heading:K-rangs
+        (
+            chat:Mega:(Haw, Haw, bite, bite, choke, choke, scratch, scratch, poison, poison, zap, zap, bang, bang, KLONG!!!)
+            end:
+        )
+    ]
+    Thread:10
+    [
+        Heading:Game
+        (
+            chat:You're done with this game! Get the sequel and leave me alone.
+        )
+        Heading:Death Rattle
+        (
+            chat:I can stun Kows from twenty paces with this baby!
+            chat:And the Kats are positively terrified of me!!
+        )
+        Heading:Mikey for Mayor
+        (
+            chat:That mouse couldn't find the way out of his own maze, let alone win an election...unless he's the only one running.
+            chat:Buy the next game NOW!
+        )
+    ]
+}
+

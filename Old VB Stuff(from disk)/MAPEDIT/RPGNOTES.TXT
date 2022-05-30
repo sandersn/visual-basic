@@ -1,0 +1,188 @@
+Nathan:
+Making the screen scroll: This is actually pretty easy if you look at it.
+Here is where I think that we should tweak the 3's to 10's or
+something.
+Modified code:
+Form_KeyDown
+	...
+	   ' recompute x position of screen. MAP_HEIGHT \/ is now 10.	
+	   If ((Chars(0).X - (Chars(0).ScreenX * MapXSize)) < 1) And (Chars(0).X > 1) Then
+		  MapTopX = Chars(0).X - 9 	I'm pretty sure we /\don't need this extra And
+		ScreenX = ScreenX - 1
+	   ElseIf ((Chars(0).X - (Chars(0).ScreenX * MapXSize)) > 10) And (Chars(0).X < 198[top num
+	ber of map -1]) Then
+		  MapTopX = Chars(0).X + 9
+	   End If
+
+	   ' recompute y position of screen
+	   If ((Chars(0).Y - (Chars(0).ScreenX * MAP_HEIGHT)) < 1) And (Chars(0).Y > 1) Then
+		  MapTopY = Chars(0).Y - 9
+	   ElseIf ((Chars(0).Y - MapTopY) > 10) And (Chars(0).Y < 198) Then
+		  MapTopY = Chars(0).Y + 9
+	   End If
+
+	   PaintMap
+	...
+
+Making the figure on the screen turn in the direction of the arrow key just
+pressed:
+This is really easy because all it requires is adding extra picture boxes
+with the animation, and for ease of use, addition of the symbolic 
+constants:FRAME_UP, FRAME_DOWN, FRAME_LEFT, FRAME_RIGHT.
+
+Option Explicit
+...
+Const FRAME_UP = 0
+Const FRAME_DOWN = 1
+Const FRAME_LEFT = 2
+Const FRAME_RIGHT = 3
+...
+Form_KeyDown
+...
+	   Case VK_DOWN:
+		  If Chars(0).Y < BigMapYSize Then
+			 Chars(0).Y = Chars(0).Y + 1
+		Chars(0).Symbol = FRAME_DOWN 'New line
+		  End If
+	   Case VK_UP:
+		  If Chars(0).Y > 1 Then
+			 Chars(0).Y = Chars(0).Y - 1
+		Chars(0).Symbol = FRAME_UP 'New line
+		  End If
+	   Case VK_LEFT:
+		  If Chars(0).X > 1 Then
+			 Chars(0).X = Chars(0).X - 1
+		Chars(0).Symbol = FRAME_LEFT 'New line
+		  End If
+	   Case VK_RIGHT:
+		  If Chars(0).X < BigMapXSize Then
+			 Chars(0).X = Chars(0).X + 1
+		Chars(0).Symbol = FRAME_RIGHT 'New line
+		  End If
+...
+This is some C code to detect whether the player has bumped into an occupied
+cell. If they have, it backs them up by that much.(I think that we need to 
+change the X,Y variables to actual pixel positions, and the current X, Y
+variables to CellX, CellY to implement animation.
+	if X > 0 then
+		cell_x = ((local_player.x+10) >> 4)
+	else                 (>> 4 means divide by 2 to the power of 4)
+		cell_x = ((local_player.x+4) >> 4) i.e. divide by 16
+	end if
+
+	if y > 0 then
+		cell_y = ((local_player.y+10) >> 4);
+	else
+		cell_y = ((local_player.y+4) >> 4);
+
+	'have we tried to merge with solid matter?
+
+	if (game_grid[cell_y][cell_x]!=' ') then
+		player.x-=dx
+		player.y-=dy
+
+Actual animation:I think that the best way to do this is that when a user
+presses a key, the KeyPress animates the player one cell in the direction
+that user pressed by for looping through the animation. The alternate way 
+to do this is have a static variable holding the frame, and run the sub
+multiple times, incrementing the variable each time.
+This method will outdate the method I used above changing the direction of
+the player. Every time the user changes a weapon or gets better armor that
+we want to display graphically, we will change the Symbol, which is really
+an array of picture boxes. Then, for each Symbol, we need Clint to draw
+the up, down, left, right rows. Each column of these rows will contain a 
+frame of animation. For instance, if we wanted to show
+the 5th frame of the player going left, we would use the line:
+
+these two coordinates tell the blitter where to start grabbing the picture
+BitBlt(..., Char(Index).FrameNum * 32, Char(Index).Row * 32, ...)
+we want. The first coordinate is the frame number, and the second is the 
+row number. These will be supplied by the PaintMap sub.
+
+I think this method will work for animating enemies, also.
+I think I might have model to use to illustrate this method. Here it is:
+tmrTimer_Timer
+Dim OldCellX, OldCellY, OldMapTopX, OldMapTopY as Int
+
+Dim XDir, YDir as Int 'new for moving the player in proper direction
+...
+OldCellX = Chars(0).CellX
+OldCellY = Chars(0).CellY
+OldMapTopX = MapTopX
+OldMapTopY = MapTopY
+If KeyCode = WEST Then
+	XDir = -1
+	YDir = 0
+	Chars(0).Row = ROW_LEFT '= 0
+	Chars(0).CellX = Chars(0).CellX - 1
+	Facing = WEST
+Elseif KeyCode = KEY_RIGHT Then
+	XDir = 1 * VELOCITY
+	YDir = 0
+	Chars(0).Row = ROW_RIGHT '= 2
+	Chars(0).CellX = Chars(0).CellX + 1
+	Facing = 1
+	etc..
+End If
+...somewhere in here check if CellX AND CellY are equal to something you 
+...can't walk on. If they are, reset all values, and exit sub.
+For Frame = 0 To MAXFRAMES 
+	Chars(0).X = Chars(0).X + XDir
+	Chars(0).Y = Chars(0).Y + YDir
+	PaintMap Frame, Chars(0).Row, 0
+Next Frame
+I think, (maybe, maybe) that this will work, but I don't have any animation 
+put in one .BMP or .PCX, so I haven't tested it.
+
+Animating your Weapons:I think it's possible to negate the fact that ALT
+or CTRL have been pressed by using this IF statement:
+Form_KeyPress
+...
+If Shift = 2 Then 'or whatever ALT is
+	Shift = 0
+	KeyCode = KEY_1 'or something that isn't being used.
+Elseif Shift = 1 'The CTRL value
+	Shift = 0
+	KeyCode = KEY_2
+End if
+
+If KeyCode = KEY_LEFT Then
+	Facing = 0
+etc..
+Elseif keyCode = KEY_1 Then
+	Chars(0).Weapon1 = True
+	Chars(0).Row = 4 + Facing
+Elseif KeyCode = KEY_2 Then
+	Chars(0).Weapon2 = True
+	Chars(0).Row = 8 + Facing
+End if
+...
+If Chars(0).CellX = OldCellX And Chars(0).CellY = OldCellY Then 
+...
+Elseif Weapon1 Or Weapon2 Then
+	For Frame = 0 To MaxFrames
+		PaintMap Frame, Chars(0).Row, 0
+	Next Frame
+	If Weapon1 > 15 Or Weapon2 > 15 Then 'this is a projectile weapon
+		'somehow handle the initiation of the launching
+		If Weapon1 = 16 Then '= arrow
+			MissVelocity = 10
+			
+Else
+	For Frame = 0 To MAXFRAMES 
+		Chars(0).X = Chars(0).X + XDir
+		Chars(0).Y = Chars(0).Y + YDir
+		PaintMap Frame, Chars(0).Row, 0
+	Next Frame
+End if
+...
+if IsMonster(blah,blah,blah)Then
+	If Weapon1 then
+		Attack
+	elseif Weapon2 Then
+		Attack
+	Else 
+		Hurt(or maybe attack with the MonsterIndex)
+	end if
+end if
+This may work. I have not tested it!!!

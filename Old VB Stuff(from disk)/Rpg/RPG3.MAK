@@ -1,0 +1,12 @@
+MAP.FRM
+RPG.BAS
+DISPLAY.FRM
+PICTUREF.FRM
+BATTLE.FRM
+CHARA.FRM
+ProjWinSize=65,496,140,219
+ProjWinShow=2
+IconForm="Map"
+Title="RPG"
+ExeName="RPG.EXE"
+Path="A:"
