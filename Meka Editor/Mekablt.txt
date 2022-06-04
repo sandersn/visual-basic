@@ -1,0 +1,107 @@
+
+Welcome the to the Meka Blit Mode Editor! (version 1.1)
+
+This program is designed to be an easy way to create new blit modes in Meka. You can also
+edit old ones if you want.
+
+The system requirements are simple: the same as WonderTheme! ^_^
+Seriously, you need the Visual Basic 5 runtime DLLs, and that's
+about it. If you can run WonderTheme, you can run this.
+However, if you can't run either, I suggest going to
+www.download.com and searching for 'Visual Basic 5 Runtimes' or 
+something similar.
+
+I have provided lots of in-program roll-over help, so everything should be
+self explanatory. However, I will give a quick summary of all controls here.
+Also, new in version 1.1, I have added a 'Wizard style' preview panel. This should
+alleviate almost any need for the help below. However, the wizard help does not work
+correctly at 640x480 because Visual Basic does not allow programs to be much larger
+than the screen. I have squeezed the program as much as possible, but there is still
+a small portion that is cut off.
+My advice: Change to 800x600. However, even at 640x480, you can see most of the 
+Wizard panel.
+
+
+New Mode
+	Creates a new mode. I recommend using this one instead of altering any
+of Zoop's currently working modes. The new mode uses defaults rather than asking
+you which mode to use as a base(like WonderTheme).
+
+Delete Mode
+	Deletes selected mode. Not recommended except for modes you've made yourself
+that don't work.
+
+Modes (listbox)
+	A list of the Modes currently in Meka.BLT. Double-click a mode to change its
+name, or press Ctrl+Up/Down Arrow to move the mode in the list. This will also change
+its position in Meka.
+
+Blitters (listbox)
+	A list of the blitters in the current version of Meka(0.54 as of this writing).
+Full explanation of each and their implications is given in the program.
+
+X and Y resolution (combo boxes)
+	A text box that allows you to type in the X and Y resolutions. 
+Not all values work, so it is HIGHLY RECOMMENDED that you choose values from the list
+section of this control. Even here, not all combinations will work. Observe the
+combinations used in current modes.
+
+Drivers (listbox)
+	A list of the drivers Meka can use to make the video mode you request. The lower
+the driver on the list, the more modes it supports and the faster they run...I think. I don't know
+what VBEAF is. And I didn't know there was a VESA3 already :) Auto is really the easiest
+choice here, but you can get better performance sometimes by manually choosing a high
+VESA driver if you know your video card supports it. The reason is that Meka automatically uses a VGA driver if one works. For example, 320x200 would definitely be VGA compatible, so
+you would have to manually specify VESA if you wanted VESA to create the mode.
+
+Show In GUI
+	If checked, will appear in GUI. If not, you won't be able to use it in Meka.
+
+Flip
+	Short for "Use back(or flip) buffer". If you don't know what this does, see the program's
+rollover help.
+
+VSync
+	Short for "Vertical synchronization". If you don't know what this does, 
+see the program's rollover help.
+
+Comments
+	Type any comments here. NOTE: You shouldn't have to explain what a video mode's
+name means or what the mode does. The name should be descriptive. 
+But if you WANT to create "Bob's 13th Mode" and "Bob's 14th Mode", that's fine with me.
+Note on comment length: I think you can actually have an unlimited amount of comment space.
+However, my gut feeling is that too many comments slow down startup of Meka. No hard facts
+on this, however. Besides, who wants a 1.2 MB Meka.blt?
+
+Well, for reading all the way to the bottom, here is a special treat: In version 1.1, I
+added the ability to specify Meka's directory automatically. Use this if you are
+1)A fanatic who creates new blitters all tht time.
+2)A person who closes MekaBlit every time they test a new mode. This is not necessary, however.
+Here's how to use it:
+1)Create a shortcut to MekaBlit.exe. This is best put either in the directory with Meka or
+the Start Menu with Meka or on the Desktop with Meka. Just right-drag Mekablit.exe where
+you want it, then release and choose 'Create Shortcut Here'.(This method doesn't work with
+Win95's Start Menu).
+2)Right click the new shortcut and go to the second tab: "Shortcut"
+3)In the 'Target' text box after "C:\xxxx\MekaBlit.exe" type c:\<whatever>
+where <whatever> is the real pathname.
+	Example: "C:\Program Files\Visual Basic\MekaBlit.exe" C:\Games\Master\Meka
+4)If you ever want to change the pathname, repeat steps 2 and 3.
+
+Now whenever you start MekaBlit using this shortcut, you will never need to specify the
+pathname again!
+
+History of new features:
+1.1
+	Wizard panel.
+	Command line path specification.
+1.0
+	Everything. ^_^
+
+
+Source code is included with Meka Blit Editor. You need Visual Basic version 5.0 
+or higher to use the source. You can do whatever you want with the source, just be
+good enough not to put my name on it.
+
+Meka Blit Mode Editor by ZackMan (sandersn@hotmail.com)
+Meka by Zoop	(cornut@cybercable.fr)

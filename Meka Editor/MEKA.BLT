@@ -1,0 +1,108 @@
+;
+; MEKA - Video Blitter configuration and modes
+;
+; [name]
+; res = XRESOLUTIONxYRESOLUTION
+; blitter = normal | double | scanlines | tvmode | eagle | parallel
+; driver = auto | another driver
+; See MEKA.CFG for a list of available graphics drivers
+;
+; Optional commands:
+;  flip (enable page flipping to reduce color flickers, slow)
+;  vsync (enable vertical synchronization to reduce flickers, slow)
+; Important:
+;  Enabling FLIP and VSYNC on the same time will divide the speed of
+;  the emulator by a factor of two.
+;
+; Available video modes depends on your video card. Some modes you may
+; want to try are 256x192, 256x240, 320x200 and 512x384.
+;
+; *FOR MAXIMUM PERFORMANCES*
+; Set the higher VESA mode if possible as it's not always selected by
+; default when using the "auto" driver.
+;
+; *IMPORTANT NOTE*
+; On some video cards the 512x384 video modes will not work or might even
+; show wrong colors. This is a known bad behavior. Try tweaking with your
+; drivers or Scitech Display Doctor.
+;
+; Blitters description:
+;  "normal"     default one, nothing special
+;  "double"     double the size of each pixel (need a high resolution)
+;               sometimes useful when higher resolution are using the whole
+;               screen you can take advantage of them and double the pixels.
+;  "scanlines"  simulates TV scanlines, fast but not very accurate
+;  "tvmode"     simulates TV scanlines, slow but very nice looking
+;  "eagle"      round squares forms on the picture (need a high resolution),
+;               causing a true sacrilege to good old graphics :)
+;  "parallel"   show even and odd frames side by side
+;
+
+[Normal]
+res = 320x200
+driver = auto
+
+;[Vsync]
+;res = 320x200
+;vsync
+;driver = auto
+
+[Page Flipping]
+res = 320x200
+flip
+driver = auto
+
+;[Normal 256x192]
+;res = 256x192
+;driver = auto
+
+[Doubled]
+res = 512x384
+blitter = double
+driver = auto
+
+[Doubled Game Gear]
+ res = 376x308
+;; res = 320x350
+;; res = 376x282
+;; res = 360x360
+blitter = double
+driver = auto
+
+;[Scanlines]
+;res = 320x400
+;blitter = scanlines
+;driver = auto
+
+[TV Mode]
+res = 320x400
+blitter = tvmode
+driver = auto
+
+;[TV Mode Doubled]
+;res = 512x384
+;blitter = tvmode_double
+;driver = auto
+
+;[Eagle]
+;res = 640x480
+;blitter = eagle
+;driver = auto
+
+;[Parallel]
+;res = 640x480
+;blitter = parallel
+;driver = auto
+
+[Perfect]
+res = 512x384
+blitter = tvmode_double
+flip
+driver = auto
+
+;[Perfect 2]
+;; Use this one if "Perfect" gives you wrong colors
+;res = 320x200
+;blitter = tvmode
+;flip
+;driver = auto
