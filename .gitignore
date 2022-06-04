@@ -1,5 +1,30 @@
 *.exe
 *.mdb
+*.zip
 .DS_Store
+C\ Type\ Libraries/
 Class/Install\ Here/
 Class/Ws10/
+Hacking/
+Game\ Prog\ Demos/Adventure\ Game/
+Game\ Prog\ Demos/Bomber\ Demo/
+Game\ Prog\ Demos/Menace\ Demo/
+Game\ Prog\ Demos/Oge2\ Demo/
+Game\ Prog\ Demos/Ryan's\ Dx7\ Demo/
+Game\ Prog\ Demos/Sprite\ Compiler/
+Game\ Prog\ Demos/VB\ Transparency/
+Game\ Prog\ Demos/VBDx\ Beginner/
+Game\ Prog\ Demos/Voxel\ Demo/
+Game\ Prog\ Demos/*.zip
+Misc\ TLBs/
+Old\ VB\ Stuff(from\ disk)/ANGBAND*
+Old\ VB\ Stuff(from\ disk)/EXT-WIN/
+Old\ VB\ Stuff(from\ disk)/FITNESS.ICO
+Old\ VB\ Stuff(from\ disk)/GAMESTUF.BAS
+Old\ VB\ Stuff(from\ disk)/GAMETOOL.BAS
+Old\ VB\ Stuff(from\ disk)/LIB/
+Old\ VB\ Stuff(from\ disk)/Nahlakh/
+Old\ VB\ Stuff(from\ disk)/Nerakia/
+Old\ VB\ Stuff(from\ disk)/README.TXT
+Old\ VB\ Stuff(from\ disk)/RPGXTRA/
+Old\ VB\ Stuff(from\ disk)/*.EXE
