@@ -1,5 +1,6 @@
 *.exe
 *.mdb
+*.htm
 *.zip
 .DS_Store
 C\ Type\ Libraries/
@@ -32,3 +33,4 @@ Security\ from\ Wesley/
 Sounds\ from\ Bob/*.MID
 Sounds\ from\ Bob/*.WAV
 setup.lst
+Thingy32/
